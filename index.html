@@ -86,33 +86,17 @@
   }
 
   /* ---------- hero ---------- */
-  .hero{padding:38px 0 28px;}
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:2px;
-    color:var(--mech); text-transform:uppercase; margin-bottom:14px; font-weight:600;
-  }
+  .hero{padding:42px 0 8px;}
   h1{
-    font-size:clamp(28px,4.6vw,44px); line-height:1.15; margin:0 0 18px; font-weight:700; max-width:760px;
+    font-size:clamp(28px,4.6vw,44px); line-height:1.15; margin:0 0 18px; font-weight:700; max-width:900px;
     letter-spacing:-0.3px;
   }
   h1 .hand{ color:var(--thermo); font-size:1.28em; font-weight:600; }
-  .lead{font-size:17.5px; color:var(--ink-soft); max-width:600px; margin:0 0 22px;}
-  .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:30px;}
-  .btn{
-    padding:12px 20px; border-radius:var(--radius); font-weight:600; font-size:15px;
-    text-decoration:none; display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--ink);
-  }
-  .btn.solid{background:var(--ink); color:var(--paper);}
-  .btn.solid:hover{background:var(--mech); border-color:var(--mech);}
-  .btn.outline{background:transparent; color:var(--ink);}
-  .btn.outline:hover{background:var(--paper-card); box-shadow:var(--shadow);}
-
-  .hero-media{display:grid; grid-template-columns:1.4fr 1fr; gap:22px; align-items:start;}
-  @media (max-width:820px){ .hero-media{grid-template-columns:1fr;} }
+  .lead{font-size:17.5px; color:var(--ink-soft); max-width:none; margin:0;}
 
   .player-card{
     background:var(--ink); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
-    position:relative;
+    position:relative; margin-bottom:26px;
   }
   .player-card .frame{position:relative; padding-top:56.25%;}
   .player-card .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
@@ -123,30 +107,15 @@
   }
   .player-tabs button.active{color:#fff; border-color:var(--mech);}
 
-  .taped{
-    background:var(--paper-card); padding:14px 14px 18px; box-shadow:var(--shadow);
-    transform:rotate(-2.2deg); position:relative; border-radius:2px;
-  }
-  .taped::before{
-    content:""; position:absolute; top:-12px; left:50%; transform:translateX(-50%) rotate(-3deg);
-    width:80px; height:24px; background:var(--tape);
-    box-shadow:0 1px 2px rgba(0,0,0,0.08);
-  }
-  .taped img{width:100%; border:1px solid #e8e5da;}
-  .taped figcaption{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);
-    margin-top:8px; text-align:center;
-  }
-
   /* ---------- sections ---------- */
-  section{padding:32px 0;}
-  .section-head{max-width:640px; margin-bottom:22px;}
+  section{padding:30px 0;}
+  .section-head{margin-bottom:22px;}
+  .section-head p{color:var(--ink-soft); margin:0; font-size:15.5px; max-width:none;}
   .kicker{
     font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:2px;
     text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;
   }
   h2{font-size:clamp(24px,3.6vw,36px); margin:0 0 10px; font-weight:700; letter-spacing:-0.2px;}
-  .section-head p{color:var(--ink-soft); margin:0; font-size:15.5px;}
 
   /* feature cards */
   .features{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
@@ -162,23 +131,21 @@
   .feature h3{margin:0 0 6px; font-size:19px;}
   .feature p{margin:0; color:var(--ink-soft); font-size:14.5px;}
 
-  /* program: two-column layout mirroring the original poster (mechanics left, rest right) */
-  .program-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:start;}
+  /* program: two equal-height columns mirroring the original poster (mechanics left, rest right) */
+  .program-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch;}
   @media (max-width:900px){ .program-grid{grid-template-columns:1fr;} }
   .program-col-right{display:flex; flex-direction:column; gap:14px;}
+  .program-col-right .accordion-section{flex:1; display:flex; flex-direction:column;}
 
   .accordion-section{background:var(--paper-card); border:1px solid #E7E3D6; border-radius:var(--radius); overflow:hidden;}
-  .accordion-section > summary{
-    list-style:none; cursor:pointer; padding:16px 20px; display:flex; align-items:center; gap:14px;
+  .accordion-section .section-title{
+    padding:16px 20px; display:flex; align-items:center; gap:14px;
     font-weight:700; font-size:17px; border-left:6px solid var(--ink);
   }
-  .accordion-section > summary::-webkit-details-marker{display:none;}
-  .accordion-section > summary .arrow{margin-left:auto; font-family:'IBM Plex Mono',monospace; transition:transform .2s ease;}
-  .accordion-section[open] > summary .arrow{transform:rotate(90deg);}
-  .accordion-section.mech > summary{border-color:var(--mech); background:var(--mech-bg);}
-  .accordion-section.thermo > summary{border-color:var(--thermo); background:var(--thermo-bg);}
-  .accordion-section.electro > summary{border-color:var(--electro); background:var(--electro-bg);}
-  .accordion-section.nuclear > summary{border-color:var(--nuclear); background:var(--nuclear-bg);}
+  .accordion-section.mech .section-title{border-color:var(--mech); background:var(--mech-bg);}
+  .accordion-section.thermo .section-title{border-color:var(--thermo); background:var(--thermo-bg);}
+  .accordion-section.electro .section-title{border-color:var(--electro); background:var(--electro-bg);}
+  .accordion-section.nuclear .section-title{border-color:var(--nuclear); background:var(--nuclear-bg);}
   .accordion-body{padding:6px 20px 18px;}
   .subgroup{margin:14px 0 4px;}
   .subgroup h4{
@@ -205,13 +172,13 @@
   }
   .showcase-link:hover{text-decoration:underline;}
 
-  /* materials: theory / practice / homework / homework-solution */
-  .materials-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
-  @media (max-width:760px){ .materials-grid{grid-template-columns:1fr;} }
-  .material-card{background:var(--paper-card); border:1px solid #E7E3D6; border-radius:var(--radius); padding:18px;}
-  .material-card .head{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px;}
+  /* materials: theory / practice / homework / homework-solution — 2x2 matrix */
+  .materials-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  @media (max-width:640px){ .materials-grid{grid-template-columns:1fr;} }
+  .material-card{background:var(--paper-card); border:1px solid #E7E3D6; border-radius:var(--radius); padding:16px;}
+  .material-card .head{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:12px; flex-wrap:wrap;}
   .material-card .head .label{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.3px; text-transform:uppercase;
+    font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:1.3px; text-transform:uppercase;
     font-weight:700;
   }
   .material-card.m-theory .label{color:var(--mech);}
@@ -223,15 +190,15 @@
     padding:6px 12px; border-radius:var(--radius); white-space:nowrap;
   }
   .material-card .head a.dl:hover{background:var(--ink); color:var(--paper);}
-  .preview-box{position:relative; border:1px solid #e8e5da; border-radius:2px; overflow:hidden; background:var(--paper);}
-  .preview-box img{width:100%; display:block;}
-  .preview-fallback{
-    display:none; align-items:center; justify-content:center; text-align:center; padding:34px 16px;
-    color:var(--ink-soft); font-size:13.5px; font-family:'IBM Plex Mono',monospace; min-height:160px;
+  .preview-box{position:relative; border:1px solid #e8e5da; border-radius:2px; overflow:hidden; background:var(--paper); height:360px;}
+  .preview-box iframe{width:100%; height:100%; border:0; display:block;}
+  .scroll-hint{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); text-align:center;
+    margin-top:6px; opacity:0.75;
   }
 
   /* about */
-  .about{display:grid; grid-template-columns:0.9fr 1.1fr; gap:34px; align-items:start;}
+  .about{display:grid; grid-template-columns:1.15fr 0.85fr; gap:34px; align-items:start;}
   @media (max-width:820px){ .about{grid-template-columns:1fr;} }
   .diploma-tag{
     display:inline-block; background:var(--mech-bg); color:var(--mech); font-weight:600;
@@ -244,25 +211,33 @@
   }
   .avatar-row{display:flex; align-items:center; gap:16px; margin-bottom:16px;}
   .avatar-row img{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid var(--ink); flex:none;}
-  .docs-row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px;}
-  .docs-row figure{margin:0;}
-  .docs-row img{border:1px solid #e8e5da; border-radius:2px; box-shadow:var(--shadow);}
-  .docs-row figcaption{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:6px; text-align:center;}
+  .docs-col{display:flex; flex-direction:column; gap:16px; margin-top:46px;}
+  .docs-col figure{margin:0; width:80%; margin-left:auto; margin-right:auto;}
+  .docs-col img{border:1px solid #e8e5da; border-radius:2px; box-shadow:var(--shadow); cursor:zoom-in;}
+  .docs-col figcaption{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:6px; text-align:center;}
 
-  /* telegram slideshow */
-  .slideshow{position:relative; background:var(--paper-card); border:1px solid #E7E3D6; border-radius:var(--radius); overflow:hidden;}
-  .slides{position:relative; padding-top:66%; background:#f1efe6;}
-  .slides img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .35s ease;}
-  .slides img.active{opacity:1;}
-  .slide-nav{display:flex; align-items:center; justify-content:space-between; padding:10px 14px; background:var(--paper);}
-  .slide-nav button{
-    background:none; border:1.5px solid var(--ink); border-radius:var(--radius); width:32px; height:32px;
-    cursor:pointer; font-size:15px;
+  .lightbox{
+    position:fixed; inset:0; background:rgba(10,14,11,0.9); display:flex; align-items:center; justify-content:center;
+    padding:40px; opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:300; cursor:zoom-out;
   }
-  .slide-nav button:hover{background:var(--ink); color:var(--paper);}
-  .dots{display:flex; gap:6px;}
-  .dots span{width:7px; height:7px; border-radius:50%; background:#D8D3C2; display:block; cursor:pointer;}
-  .dots span.active{background:var(--mech);}
+  .lightbox.open{opacity:1; pointer-events:auto;}
+  .lightbox img{max-width:92vw; max-height:92vh; box-shadow:0 20px 60px rgba(0,0,0,0.5); border-radius:2px;}
+
+  /* channel contents list */
+  .channel-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media (max-width:820px){ .channel-grid{grid-template-columns:1fr;} }
+  .channel-cat{background:var(--paper-card); border:1px solid #E7E3D6; border-radius:var(--radius); padding:18px 20px;}
+  .channel-cat h4{margin:0 0 10px; font-size:16.5px;}
+  .channel-sub{margin:12px 0;}
+  .channel-sub h5{
+    margin:0 0 6px; font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase;
+    letter-spacing:1px; color:var(--ink-soft); font-weight:600;
+  }
+  .channel-cat ul{margin:0; padding-left:18px;}
+  .channel-cat li{margin-bottom:7px; font-size:14.5px; color:var(--ink-soft);}
+  .channel-cat li a{color:var(--mech); text-decoration:none; font-weight:600;}
+  .channel-cat li a:hover{text-decoration:underline;}
+  .channel-note{font-size:12.5px; color:var(--ink-soft); font-style:italic; margin:0 0 8px;}
 
   /* pricing */
   .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:22px;}
@@ -286,8 +261,7 @@
   .contact-band{
     background:var(--ink); color:var(--paper); border-radius:6px; padding:38px 30px; text-align:center;
   }
-  .contact-band h2{color:#fff;}
-  .contact-band p{color:#C7D2C9; max-width:520px; margin:0 auto 22px;}
+  .contact-band h2{color:#fff; margin:0 0 22px;}
   .contact-links{display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
   .contact-links a{
     background:transparent; border:1.5px solid var(--paper); color:var(--paper); padding:11px 18px;
@@ -315,9 +289,9 @@
     <nav class="links">
       <a href="#course">Курс</a>
       <a href="#program">Программа</a>
-      <a href="#conspect">Материалы</a>
-      <a href="#channel">Канал</a>
+      <a href="#example">Пример занятия</a>
       <a href="#about">Обо мне</a>
+      <a href="#channel">Канал</a>
       <a href="#price">Формат и цена</a>
     </nav>
     <a class="cta-btn" href="#contact">Написать</a>
@@ -328,34 +302,8 @@
 
   <!-- HERO -->
   <section class="hero" id="course">
-    <div class="eyebrow">ОГЭ · Физика · Онлайн, по расписанию</div>
-    <h1>Физика — это <span class="hand">не зубрёжка формул</span>, а понятная логика, если объяснить по порядку.</h1>
-    <p class="lead">Годовой онлайн-курс подготовки к ОГЭ по физике с нуля. Расписание составлено заранее — вы с первого занятия видите весь путь до экзамена, а не идёте наугад от урока к уроку.</p>
-    <div class="hero-actions">
-      <a class="btn solid" href="#watch">Смотреть демо-занятие</a>
-      <a class="btn outline" href="#conspect">Пример материалов</a>
-    </div>
-
-    <div class="hero-media" id="watch">
-      <div class="player-card">
-        <div class="player-tabs">
-          <button class="active" data-src="https://www.youtube.com/embed/DCoekumZ8M4">YouTube</button>
-          <button data-src="https://vkvideo.ru/video_ext.php?oid=-109659648&id=456239019&hash=01c073d7552f2817&hd=3">VK Видео</button>
-        </div>
-        <div class="frame">
-          <iframe id="player"
-            src="https://www.youtube.com/embed/DCoekumZ8M4"
-            title="Разводим базар за электрические цепи. Физика ОГЭ"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-      </div>
-      <figure class="taped">
-        <img src="theory-preview.jpg" alt="Страница конспекта: механическая работа, мощность, энергия">
-        <figcaption>из конспекта «Механическая работа, мощность, энергия»</figcaption>
-      </figure>
-    </div>
+    <h1><span class="hand">Физика — это наука о неживой природе</span></h1>
+    <p class="lead">Годовой онлайн-курс подготовки к ОГЭ по физике с нуля. Расписание составлено заранее — вы с первого занятия видите весь путь до экзамена, а не идёте наугад от урока к уроку</p>
   </section>
 
   <!-- FEATURES -->
@@ -364,17 +312,17 @@
       <div class="feature">
         <span class="num mono">01</span>
         <h3>С нуля до ОГЭ</h3>
-        <p>Начинаем с базовых понятий — подходит и тем, кто раньше физику побаивался, и тем, кто хочет системно закрыть пробелы.</p>
+        <p>Начинаем с базовых понятий — подходит и тем, кто раньше физику побаивался, и тем, кто хочет системно закрыть пробелы</p>
       </div>
       <div class="feature">
         <span class="num mono">02</span>
         <h3>Расписание на весь год</h3>
-        <p>Программа расписана заранее — понятно, что будет пройдено к любому моменту до экзамена.</p>
+        <p>Программа расписана заранее — понятно, что будет пройдено к любому моменту до экзамена</p>
       </div>
       <div class="feature">
         <span class="num mono">03</span>
         <h3>Теория, практика, ДЗ</h3>
-        <p>К каждой теме — полный комплект: теория, разбор задач, домашнее задание и его решение.</p>
+        <p>К каждой теме — полный комплект: теория, разбор задач, домашнее задание и его решение</p>
       </div>
     </div>
   </section>
@@ -384,13 +332,13 @@
     <div class="section-head">
       <div class="kicker">Программа курса</div>
       <h2>36 тем, 4 больших раздела</h2>
-      <p>Кликните по разделу, затем по теме — откроется короткое описание, что именно разбираем на занятии.</p>
+      <p>Кликните по теме внутри раздела — откроется короткое описание, что именно разбираем на занятии.</p>
     </div>
 
     <div class="program-grid">
       <!-- LEFT: mechanics -->
-      <details class="accordion-section mech" open>
-        <summary>Механика <span class="arrow">▸</span></summary>
+      <div class="accordion-section mech">
+        <div class="section-title">Механика</div>
         <div class="accordion-body">
 
           <div class="subgroup"><h4>Кинематика</h4>
@@ -398,7 +346,7 @@
               <div class="lesson-body">Что такое скорость и как читать графики движения тела по прямой.</div></details>
             <details class="lesson"><summary><span class="tag">2</span> Равноускоренное движение</summary>
               <div class="lesson-body">Ускорение, разгон и торможение — и как решать задачи на эти величины.</div></details>
-            <details class="lesson"><summary><span class="tag">П</span> Задачи на оба вида движения</summary>
+            <details class="lesson"><summary><span class="tag">П</span> Практика. Равномерное и равноускоренное движение</summary>
               <div class="lesson-body">Закрепляем: разбираем задачи ОГЭ, где встречаются оба типа движения вместе.</div></details>
             <details class="lesson"><summary><span class="tag">3</span> Свободное падение</summary>
               <div class="lesson-body">Частный случай равноускоренного движения — падение тел под действием силы тяжести.</div></details>
@@ -407,8 +355,8 @@
           </div>
 
           <div class="subgroup"><h4>Динамика</h4>
-            <details class="lesson"><summary><span class="tag">5</span> Плотность вещества. Масса</summary>
-              <div class="lesson-body">Базовая величина, без которой не решить ни одну задачу на силу и давление.</div></details>
+            <details class="lesson"><summary><span class="tag">5</span> Плотность вещества. Инерция. Масса</summary>
+              <div class="lesson-body">Базовые величины, без которых не решить ни одну задачу на силу и давление.</div></details>
             <details class="lesson"><summary><span class="tag">6</span> Сила. Законы Ньютона</summary>
               <div class="lesson-body">Три закона, на которых держится вся механика — разбираем на бытовых примерах.</div></details>
             <details class="lesson"><summary><span class="tag">7</span> Закон всемирного тяготения. Вес тела</summary>
@@ -417,7 +365,7 @@
               <div class="lesson-body">Пружины, деформация и как считать силу упругости в задачах ОГЭ.</div></details>
             <details class="lesson"><summary><span class="tag">9</span> Сила трения</summary>
               <div class="lesson-body">Откуда берётся трение и как оно входит в уравнения движения.</div></details>
-            <details class="lesson"><summary><span class="tag">П</span> Задачи на сложные силы</summary>
+            <details class="lesson"><summary><span class="tag">П</span> Практика. Сложные силы</summary>
               <div class="lesson-body">Когда на тело действует сразу несколько сил — учимся находить равнодействующую.</div></details>
           </div>
 
@@ -427,28 +375,28 @@
             <details class="lesson"><summary><span class="tag">11</span> Механическая работа, мощность, энергия</summary>
               <div class="lesson-body">
                 Когда сила действительно совершает работу, чем работа отличается от мощности, и откуда берётся формула кинетической и потенциальной энергии.
-                <br><a class="showcase-link" href="#conspect">Пример материалов по этой теме ↓</a>
+                <br><a class="showcase-link" href="#example">Пример материалов по этой теме ↓</a>
               </div></details>
             <details class="lesson"><summary><span class="tag">12</span> Закон сохранения механической энергии</summary>
               <div class="lesson-body">Как энергия «переходит» из потенциальной в кинетическую и обратно в системах без трения.</div></details>
           </div>
 
           <div class="subgroup"><h4>Статика</h4>
-            <details class="lesson"><summary><span class="tag">13</span> Момент силы. Правило моментов</summary>
-              <div class="lesson-body">Условие равновесия рычага — тема, которая почти всегда встречается в ОГЭ отдельным заданием.</div></details>
+            <details class="lesson"><summary><span class="tag">13</span> Момент силы. Правило моментов. Простые механизмы</summary>
+              <div class="lesson-body">Условие равновесия рычага и других простых механизмов — тема, почти всегда встречающаяся в ОГЭ.</div></details>
             <details class="lesson"><summary><span class="tag">14</span> Блок и наклонная плоскость. КПД</summary>
               <div class="lesson-body">Простые механизмы и почему они никогда не дают выигрыша в работе, только в силе.</div></details>
             <details class="lesson"><summary><span class="tag">15</span> Давление твердых тел, жидкостей и газов</summary>
               <div class="lesson-body">Одна формула — три разных на вид типа задач в ОГЭ.</div></details>
-            <details class="lesson"><summary><span class="tag">16</span> Атм. давление. Сообщающиеся сосуды</summary>
-              <div class="lesson-body">Почему воздух давит на нас, и как устроены сообщающиеся сосуды.</div></details>
+            <details class="lesson"><summary><span class="tag">16</span> Атмосферное давление. Сообщающиеся сосуды. Гидравлический пресс</summary>
+              <div class="lesson-body">Почему воздух давит на нас, как устроены сообщающиеся сосуды и на чём работает гидравлический пресс.</div></details>
             <details class="lesson"><summary><span class="tag">17</span> Сила Архимеда. Условия плавания тел</summary>
               <div class="lesson-body">Почему одни тела тонут, а другие всплывают — и как это считать.</div></details>
-            <details class="lesson"><summary><span class="tag">П</span> Задачи на силу Архимеда</summary>
+            <details class="lesson"><summary><span class="tag">П</span> Практика. Задачи на силу Архимеда</summary>
               <div class="lesson-body">Практика: самый частый тип задач по этой теме на реальном ОГЭ.</div></details>
           </div>
 
-          <div class="subgroup"><h4>Колебания и волны</h4>
+          <div class="subgroup"><h4>Механические колебания и волны</h4>
             <details class="lesson"><summary><span class="tag">18</span> Механические колебания</summary>
               <div class="lesson-body">Маятники, период и частота колебаний — база для темы волн и звука.</div></details>
             <details class="lesson"><summary><span class="tag">19</span> Механические волны. Звук</summary>
@@ -456,12 +404,12 @@
           </div>
 
         </div>
-      </details>
+      </div>
 
       <!-- RIGHT: thermo, electro, nuclear stacked -->
       <div class="program-col-right">
-        <details class="accordion-section thermo">
-          <summary>МКТ и термодинамика <span class="arrow">▸</span></summary>
+        <div class="accordion-section thermo">
+          <div class="section-title">МКТ и термодинамика</div>
           <div class="accordion-body">
             <details class="lesson"><summary><span class="tag">20</span> МКТ. Внутренняя энергия. Теплопередача</summary>
               <div class="lesson-body">Как устроено вещество на уровне молекул и что такое внутренняя энергия тела.</div></details>
@@ -473,25 +421,25 @@
               <div class="lesson-body">Испарение, кипение и как считать влажность воздуха.</div></details>
             <details class="lesson"><summary><span class="tag">24</span> Тепловые машины. КПД</summary>
               <div class="lesson-body">Как энергия топлива превращается в полезную работу — и почему часть всегда теряется.</div></details>
-            <details class="lesson"><summary><span class="tag">П</span> Качественные задачи по термодинамике</summary>
+            <details class="lesson"><summary><span class="tag">П</span> Практика. Качественные задачи по термодинамике</summary>
               <div class="lesson-body">Задачи без вычислений — учимся объяснять физические явления словами, как требует ОГЭ.</div></details>
           </div>
-        </details>
+        </div>
 
-        <details class="accordion-section electro">
-          <summary>Электродинамика <span class="arrow">▸</span></summary>
+        <div class="accordion-section electro">
+          <div class="section-title">Электродинамика</div>
           <div class="accordion-body">
 
             <div class="subgroup"><h4>Электричество</h4>
-              <details class="lesson"><summary><span class="tag">25</span> Электризация. Проводники и диэлектрики</summary>
+              <details class="lesson"><summary><span class="tag">25</span> Электризация тел. Проводники и диэлектрики</summary>
                 <div class="lesson-body">Откуда берётся электрический заряд и чем проводник отличается от диэлектрика.</div></details>
-              <details class="lesson"><summary><span class="tag">26</span> Электрический ток. Закон Ома</summary>
+              <details class="lesson"><summary><span class="tag">26</span> Электрический ток. Закон Ома для участка цепи</summary>
                 <div class="lesson-body">Главная формула электродинамики — и как её применять в задачах на цепи.</div></details>
-              <details class="lesson"><summary><span class="tag">27</span> Электрическая цепь</summary>
+              <details class="lesson"><summary><span class="tag">27</span> Электрическая цепь и соединения проводников</summary>
                 <div class="lesson-body">Последовательное и параллельное соединение — как считать общее сопротивление.</div></details>
-              <details class="lesson"><summary><span class="tag">28</span> Работа и мощность электрического тока</summary>
+              <details class="lesson"><summary><span class="tag">28</span> Работа и мощность электрического тока. Закон Джоуля-Ленца</summary>
                 <div class="lesson-body">Как посчитать, сколько энергии потребляет прибор за время работы.</div></details>
-              <details class="lesson"><summary><span class="tag">П</span> Задачи на электричество</summary>
+              <details class="lesson"><summary><span class="tag">П</span> Практика. Задачи на ток</summary>
                 <div class="lesson-body">Практика по всей теме электрических цепей — от простых до комбинированных.</div></details>
             </div>
 
@@ -500,7 +448,7 @@
                 <div class="lesson-body">Как выглядит магнитное поле и по каким правилам определяется его направление.</div></details>
               <details class="lesson"><summary><span class="tag">30</span> Сила Ампера</summary>
                 <div class="lesson-body">Как магнитное поле действует на проводник с током.</div></details>
-              <details class="lesson"><summary><span class="tag">31</span> Электромагнитные индукция и поле</summary>
+              <details class="lesson"><summary><span class="tag">31</span> Электромагнитная индукция и поле</summary>
                 <div class="lesson-body">Как движущийся магнит рождает ток — основа для понимания генераторов.</div></details>
             </div>
 
@@ -514,100 +462,89 @@
             </div>
 
           </div>
-        </details>
+        </div>
 
-        <details class="accordion-section nuclear">
-          <summary>Ядерная физика <span class="arrow">▸</span></summary>
+        <div class="accordion-section nuclear">
+          <div class="section-title">Ядерная физика</div>
           <div class="accordion-body">
-            <details class="lesson"><summary><span class="tag">35</span> Ядерные реакции</summary>
+            <details class="lesson"><summary><span class="tag">35</span> Ядерная физика. Ядерные реакции</summary>
               <div class="lesson-body">Строение атомного ядра и что происходит при ядерных реакциях.</div></details>
             <details class="lesson"><summary><span class="tag">36</span> Радиоактивность. Период полураспада</summary>
               <div class="lesson-body">Что такое радиоактивный распад и как считать период полураспада в задачах.</div></details>
           </div>
-        </details>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- MATERIALS SHOWCASE -->
-  <section id="conspect">
+  <!-- EXAMPLE LESSON: player + materials -->
+  <section id="example">
     <div class="section-head">
-      <div class="kicker">Как выглядит материал</div>
-      <h2>Полный комплект по теме: теория, практика, ДЗ</h2>
-      <p>На каждую тему курса — четыре документа. Вот пример на теме «Механическая работа, мощность, энергия».</p>
+      <div class="kicker">Как проходит занятие</div>
+      <h2>Пример занятия</h2>
+      <p>Реальная запись занятия — чтобы вы могли увидеть, как объясняю материал, ещё до того как решите записаться. Ниже — полный комплект материалов по той же теме: теория, практика, ДЗ и решение ДЗ. Документы открываются прямо на странице — их можно пролистать целиком.</p>
     </div>
+
+    <div class="player-card">
+      <div class="player-tabs">
+        <button class="active" data-src="https://www.youtube.com/embed/DCoekumZ8M4">YouTube</button>
+        <button data-src="https://vkvideo.ru/video_ext.php?oid=-109659648&id=456239019&hash=01c073d7552f2817&hd=3">VK Видео</button>
+      </div>
+      <div class="frame">
+        <iframe id="player"
+          src="https://www.youtube.com/embed/DCoekumZ8M4"
+          title="Разводим базар за электрические цепи. Физика ОГЭ"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
     <div class="materials-grid">
 
       <div class="material-card m-theory">
         <div class="head">
           <span class="label">Теория</span>
-          <a class="dl" href="theory.pdf" download>Скачать PDF</a>
+          <a class="dl" href="theory.pdf" download="Теория. Механическая работа, мощность, энергия.pdf">Скачать</a>
         </div>
         <div class="preview-box">
-          <img src="theory-preview.jpg" alt="Превью конспекта теории"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="preview-fallback">Превью появится после добавления файла theory-preview.jpg</div>
+          <iframe src="theory.pdf" title="Превью: теория"></iframe>
         </div>
+        <div class="scroll-hint">прокрутите документ, чтобы увидеть все страницы</div>
       </div>
 
       <div class="material-card m-practice">
         <div class="head">
           <span class="label">Практика</span>
-          <a class="dl" href="practice.pdf" download>Скачать PDF</a>
+          <a class="dl" href="practice.pdf" download="Практика. Механическая работа, мощность, энергия.pdf">Скачать</a>
         </div>
         <div class="preview-box">
-          <img src="practice-preview.jpg" alt="Превью конспекта с разобранными задачами"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="preview-fallback">Превью появится после добавления файла practice-preview.jpg</div>
+          <iframe src="practice.pdf" title="Превью: практика"></iframe>
         </div>
       </div>
 
       <div class="material-card m-hw">
         <div class="head">
           <span class="label">ДЗ</span>
-          <a class="dl" href="homework.pdf" download>Скачать PDF</a>
+          <a class="dl" href="homework.pdf" download="ДЗ. Механическая работа, мощность, энергия.pdf">Скачать</a>
         </div>
         <div class="preview-box">
-          <img src="homework-preview.jpg" alt="Превью домашнего задания"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="preview-fallback">Превью появится после добавления файла homework-preview.jpg</div>
+          <iframe src="homework.pdf" title="Превью: ДЗ"></iframe>
         </div>
+        <div class="scroll-hint">прокрутите документ, чтобы увидеть все страницы</div>
       </div>
 
       <div class="material-card m-hw-sol">
         <div class="head">
           <span class="label">Решение ДЗ</span>
-          <a class="dl" href="homework-solution.pdf" download>Скачать PDF</a>
+          <a class="dl" href="homework-solution.pdf" download="Решение ДЗ. Механическая работа, мощность, энергия.pdf">Скачать</a>
         </div>
         <div class="preview-box">
-          <img src="homework-solution-preview.jpg" alt="Превью решения домашнего задания"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="preview-fallback">Превью появится после добавления файла homework-solution-preview.jpg</div>
+          <iframe src="homework-solution.pdf" title="Превью: решение ДЗ"></iframe>
         </div>
+        <div class="scroll-hint">прокрутите документ, чтобы увидеть все страницы</div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- CHANNEL SLIDESHOW -->
-  <section id="channel">
-    <div class="section-head">
-      <div class="kicker">Телеграм-канал</div>
-      <h2>«Поясни за науку» — два года материалов</h2>
-      <p>Скриншоты из канала, где два года публикую разборы тем, в том числе по физике.</p>
-    </div>
-    <div class="slideshow">
-      <div class="slides" id="tg-slides">
-        <img src="tg-1.jpg" class="active" alt="Скриншот телеграм-канала 1">
-        <img src="tg-2.jpg" alt="Скриншот телеграм-канала 2">
-        <img src="tg-3.jpg" alt="Скриншот телеграм-канала 3">
-        <img src="tg-4.jpg" alt="Скриншот телеграм-канала 4">
-      </div>
-      <div class="slide-nav">
-        <button id="tg-prev" aria-label="Предыдущий">‹</button>
-        <div class="dots" id="tg-dots"></div>
-        <button id="tg-next" aria-label="Следующий">›</button>
-      </div>
     </div>
   </section>
 
@@ -619,24 +556,128 @@
         <h2>Кто ведёт курс</h2>
         <div class="avatar-row">
           <img src="avatar.jpg" alt="Фото преподавателя">
-          <span class="diploma-tag">РТУ МИРЭА · «Электроника» · диплом с отличием, 2026</span>
+          <span class="diploma-tag">Задериев Артем Романович, 22 года</span>
         </div>
-        <p>Окончил бакалавриат РТУ МИРЭА с отличием по направлению «Электроника» — физика для меня не отдельный школьный предмет, а основа специальности, которой я занимался пять лет.</p>
-        <p>Два года веду телеграм-канал «Поясни за науку», где разбираю темы из физики и смежных областей — и весь материал курса вырос из этих же конспектов, только собранных в системную годовую программу.</p>
-        <div class="quote-box hand" style="font-size:20px;">«Мне важно, чтобы ученик понимал, откуда берётся формула — тогда её не нужно зубрить.»</div>
+        <p>Окончил бакалавриат РТУ МИРЭА с отличием по направлению «Конструирование и технология электронных средств» — физика для меня не отдельный школьный предмет, а основа специальности, которую я постигал 4 года</p>
+        <p>Уже два года веду телеграм-канал «Поясни за науку», где разбираю темы из физики и смежных областей — и весь материал курса вырос из этих же конспектов, только собранных в системную годовую программу</p>
       </div>
-      <div>
-        <div class="docs-row">
-          <figure>
-            <img src="diploma-1.jpg" alt="Скан диплома, страница 1">
-            <figcaption>диплом РТУ МИРЭА</figcaption>
-          </figure>
-          <figure>
-            <img src="diploma-2.jpg" alt="Скан диплома, страница 2">
-            <figcaption>приложение к диплому</figcaption>
-          </figure>
+      <div class="docs-col">
+        <figure>
+          <img src="diploma-1.jpg" alt="Скан диплома, страница 1">
+          <figcaption>диплом РТУ МИРЭА</figcaption>
+        </figure>
+        <figure>
+          <img src="diploma-2.jpg" alt="Скан диплома, страница 2">
+          <figcaption>приложение к диплому</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANNEL CONTENTS -->
+  <section id="channel">
+    <div class="section-head">
+      <div class="kicker">Телеграм-канал</div>
+      <h2>«Поясни за науку» — что внутри</h2>
+      <p>Два года материалов: конспекты, разборы и практические шпаргалки. Вот навигация по каналу.</p>
+    </div>
+
+    <div class="channel-grid">
+
+      <div class="channel-cat">
+        <h4>⚛️ Физика и математика</h4>
+        <div class="channel-sub">
+          <h5>Школьный уровень</h5>
+          <ul>
+            <li><a href="https://t.me/nauka_explain/43" target="_blank" rel="noopener">Конспекты всей школьной физики</a> — от Павла Виктора</li>
+            <li><a href="https://t.me/nauka_explain/53" target="_blank" rel="noopener">Таблица приставок и правила перевода</a> единиц измерения</li>
+            <li><a href="https://t.me/nauka_explain/102" target="_blank" rel="noopener">Всё о работе с физическими формулами</a> — вопрос преобразования формул закрыт</li>
+            <li><a href="https://t.me/nauka_explain/85" target="_blank" rel="noopener">Вся теория по векторам</a> — всё, что когда-либо потребуется</li>
+          </ul>
+        </div>
+        <div class="channel-sub">
+          <h5>Школьный уровень</h5>
+          <ul>
+            <li><a href="https://t.me/nauka_explain/43" target="_blank" rel="noopener">Конспекты всей школьной физики</a> — от Павла Виктора</li>
+            <li><a href="https://t.me/nauka_explain/53" target="_blank" rel="noopener">Таблица приставок и правила перевода</a> единиц измерения</li>
+            <li><a href="https://t.me/nauka_explain/102" target="_blank" rel="noopener">Всё о работе с физическими формулами</a> — вопрос преобразования формул закрыт</li>
+            <li><a href="https://t.me/nauka_explain/85" target="_blank" rel="noopener">Вся теория по векторам</a> — всё, что когда-либо потребуется</li>
+          </ul>
+        </div>
+        <div class="channel-sub">
+          <h5>Экзамены</h5>
+          <ul>
+            <li><a href="https://t.me/nauka_explain/76" target="_blank" rel="noopener">Официальные справочные материалы по ОГЭ и ЕГЭ</a> — с сайта ФИПИ, в одном месте</li>
+            <li><a href="https://t.me/nauka_explain/119" target="_blank" rel="noopener">Оформление задач второй части ОГЭ по физике</a> — карточки с примерами</li>
+          </ul>
+        </div>
+        <div class="channel-sub">
+          <h5>Университетский уровень</h5>
+          <ul>
+            <li><a href="https://t.me/nauka_explain/116" target="_blank" rel="noopener">Как заботать высшую математику</a> — главное рабочее решение</li>
+          </ul>
         </div>
       </div>
+
+      <div class="channel-cat">
+        <h4>🔌 Электроника</h4>
+        <ul>
+          <li><a href="https://t.me/nauka_explain/117?single" target="_blank" rel="noopener">Условия покупки электроники в разных магазинах</a> — впечатляющие цифры</li>
+        </ul>
+
+        <h4 style="margin-top:20px;">🛠 В помощь авторам</h4>
+        <ul>
+          <li><a href="https://t.me/nauka_explain/115" target="_blank" rel="noopener">Как сжать видео без потерь</a> — с помощью HandBrake</li>
+        </ul>
+
+        <h4 style="margin-top:20px;">💻 Обзор софта</h4>
+        <ul>
+          <li><a href="https://t.me/nauka_explain/124" target="_blank" rel="noopener">Расширяем функционал Windows</a> — обзор PowerToys от Microsoft</li>
+          <li><a href="https://t.me/nauka_explain/125" target="_blank" rel="noopener">Программная замена неработающей клавиши</a> — также с PowerToys</li>
+        </ul>
+      </div>
+
+      <div class="channel-cat">
+        <h4>🎓 Помощь в обучении</h4>
+        <div class="channel-sub">
+          <h5>Цифровые конспекты — антология</h5>
+          <ul>
+            <li><a href="https://t.me/nauka_explain/48" target="_blank" rel="noopener">Markdown в Obsidian</a> — азбука, элементарная грамотность</li>
+            <li><a href="https://t.me/nauka_explain/36" target="_blank" rel="noopener">Греческий алфавит + спецсимволы</a> — шпаргалка для набора формул</li>
+            <li><a href="https://t.me/nauka_explain/41" target="_blank" rel="noopener">Разрыв страниц и пустые строки</a> — прокачиваем заметки в Obsidian</li>
+            <li><a href="https://t.me/nauka_explain/46" target="_blank" rel="noopener">Формулы LaTeX</a> — для профессиональной вёрстки конспектов</li>
+            <li><a href="https://t.me/nauka_explain/64" target="_blank" rel="noopener">Как вставлять код в Word</a> — красиво и с подсветкой</li>
+            <li><a href="https://t.me/nauka_explain/91" target="_blank" rel="noopener">Как строить графики</a> — правильно и красиво</li>
+          </ul>
+        </div>
+        <div class="channel-sub">
+          <h5>html-инструментарий</h5>
+          <p class="channel-note">ознакомьтесь с <a href="https://t.me/nauka_explain/31" target="_blank" rel="noopener">этим постом</a> перед использованием</p>
+          <ul>
+            <li><a href="https://t.me/nauka_explain/38" target="_blank" rel="noopener">Генератор тетрадной клетки (.png)</a> — для ровного письма от руки</li>
+            <li><a href="https://t.me/nauka_explain/66" target="_blank" rel="noopener">Конвертер Яндекс-пересказ → Obsidian (.md)</a> — автоматизация конспектов</li>
+            <li><a href="https://t.me/nauka_explain/95" target="_blank" rel="noopener">Экспресс-карточки</a> — для быстрого запоминания</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="channel-cat">
+        <h4>✍️ Гуманитарное</h4>
+        <div class="channel-sub">
+          <h5>Языки</h5>
+          <ul>
+            <li><a href="https://t.me/nauka_explain/75" target="_blank" rel="noopener">Практические советы по изучению языков</a> — обобщил свой опыт</li>
+            <li><a href="https://t.me/nauka_explain/72" target="_blank" rel="noopener">Произношение в испанском языке</a> — правила и особенности</li>
+          </ul>
+        </div>
+        <div class="channel-sub">
+          <h5>Прочее</h5>
+          <ul>
+            <li><a href="https://t.me/nauka_explain/40" target="_blank" rel="noopener">Гуманитарные заметки</a> — рассуждения на разные темы</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -690,12 +731,11 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-band">
-      <h2>Готовы начать?</h2>
-      <p>Напишите — расскажу подробнее о программе, покажу ещё примеры материалов и подберём удобное расписание.</p>
+      <h2>Готовы начать? Пишите!</h2>
       <div class="contact-links">
-        <a class="primary" href="https://t.me/azkimet">Telegram: t.me/azkimet</a>
-        <a href="ССЫЛКА_НА_АВИТО_ПРОФИЛЬ">Профиль на Авито</a>
-        <a href="mailto:example22@gmail.com">example22@gmail.com</a>
+        <a class="primary" href="https://t.me/azkimet">Telegram</a>
+        <a class="primary" href="https://www.avito.ru/user/6427a0f6b512621385ab3f3fe387f803/profile">Профиль на Авито</a>
+        <a href="mailto:atromaz@yandex.ru">atromaz@yandex.ru</a>
       </div>
     </div>
   </section>
@@ -705,6 +745,8 @@
 <footer>
   Поясни за науку · <a href="https://t.me/nauka_explain">t.me/nauka_explain</a>
 </footer>
+
+<div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
 
 <script>
   // video tab switching
@@ -716,30 +758,17 @@
     });
   });
 
-  // telegram slideshow
+  // lightbox for diploma scans
   (function(){
-    const slidesWrap = document.getElementById('tg-slides');
-    const slides = Array.from(slidesWrap.querySelectorAll('img'));
-    const dotsWrap = document.getElementById('tg-dots');
-    let idx = 0;
-
-    slides.forEach((img, i)=>{
-      const dot = document.createElement('span');
-      if(i===0) dot.classList.add('active');
-      dot.addEventListener('click', ()=>go(i));
-      dotsWrap.appendChild(dot);
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.docs-col img').forEach(img=>{
+      img.addEventListener('click', ()=>{
+        lightboxImg.src = img.src;
+        lightbox.classList.add('open');
+      });
     });
-    const dots = Array.from(dotsWrap.children);
-
-    function go(i){
-      slides[idx].classList.remove('active');
-      dots[idx].classList.remove('active');
-      idx = (i + slides.length) % slides.length;
-      slides[idx].classList.add('active');
-      dots[idx].classList.add('active');
-    }
-    document.getElementById('tg-prev').addEventListener('click', ()=>go(idx-1));
-    document.getElementById('tg-next').addEventListener('click', ()=>go(idx+1));
+    lightbox.addEventListener('click', ()=> lightbox.classList.remove('open'));
   })();
 </script>
 
